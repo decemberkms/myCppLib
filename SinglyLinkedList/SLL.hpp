@@ -2,17 +2,23 @@
 #define _SLL_H_
 
 #include "Node.hpp"
+#include <iostream>
 
 class SLL{
 private:
     Node *first;
 
 public:
-    SLL(){first = nullptr;}
+    SLL();
+    SLL(int A[], int n);
+
     ~SLL();
 
-    void print();
-    bool insert();
+    void printSLL();
+    bool insertSLL(int index, int x);
+    int deleteSLL(int index);
+    int countSLL();
+    int sumSLL();
     
 };
 
