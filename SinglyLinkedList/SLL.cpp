@@ -40,6 +40,11 @@ SLL::~SLL(){
     std::cout << "|Singly linked list| deleted" << std::endl;
 }
 
+Node *SLL::getFirst(){
+    return first;
+}
+
+
 void SLL::printSLL(){
     Node *p = first;
 
@@ -48,6 +53,14 @@ void SLL::printSLL(){
         p = p->next;
     }
     std::cout << "\\0" << std::endl;
+}
+
+void SLL::printSLLrec(Node *p){
+    if (p != nullptr){
+        std::cout << p->data << "->";
+        SLL::printSLLrec(p->next);
+    }
+
 }
 
 int SLL::countSLL(){

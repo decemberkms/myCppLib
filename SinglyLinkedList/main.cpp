@@ -18,5 +18,7 @@ int main(){
     myList1.deleteSLL(0);
     myList1.printSLL(); 
 
+    myList1.printSLLrec(myList1.getFirst());
+
     return 0;
 }

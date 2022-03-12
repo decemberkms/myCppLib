@@ -15,11 +15,12 @@ public:
     ~SLL();
 
     void printSLL();
+    void printSLLrec(Node *p);
     bool insertSLL(int index, int x);
     int deleteSLL(int index);
     int countSLL();
     int sumSLL();
-    
+    Node *getFirst();
 };
 
 
