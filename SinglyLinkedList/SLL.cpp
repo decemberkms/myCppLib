@@ -44,7 +44,6 @@ Node *SLL::getFirst(){
     return first;
 }
 
-
 void SLL::printSLL(){
     Node *p = first;
 
@@ -57,10 +56,10 @@ void SLL::printSLL(){
 
 void SLL::printSLLrec(Node *p){
     if (p != nullptr){
-        std::cout << p->data << "->";
+        std::cout << p->data << " -> ";
         SLL::printSLLrec(p->next);
     }
-
+    // std::cout << "\\0" << std::endl;
 }
 
 int SLL::countSLL(){
@@ -137,8 +136,6 @@ int SLL::deleteSLL(int index){
     return x;
 }
 
-
-
 int SLL::sumSLL(){
     Node *p = first;
     int sum = 0;
@@ -149,3 +146,56 @@ int SLL::sumSLL(){
     }
     return sum;
 }
+
+int SLL::MaxSLL(Node *p){
+    // std::cout << &first << std::endl;
+    // std::cout << &p << std::endl;
+    int max = INT8_MIN;
+
+    while(p){
+        if (p->data > max)
+            max = p->data;
+        p = p->next;
+    }    
+    return max;
+};
+
+int SLL::MinSLL(Node *p){
+    int min = INT8_MAX;
+
+    while(p){
+        if (p->data < min)
+            min = p->data;
+        p = p->next;
+    }    
+    return min;
+}
+
+Node *SLL::searchSLL(int key){  
+    Node *p = first;
+    while (p){
+        if(p->data == key){
+            std::cout << "The key has been found in the list" << std::endl;
+            return p;
+        }
+        p = p->next;
+    }
+    std::cout << "The key is not in the list" << std::endl;
+    return nullptr;
+}
+
+Node *SLL::searchSLLrec(Node *p, int key){
+    if (p == nullptr){
+        std::cout << "The key is not in the list" << std::endl;
+        return nullptr;
+    }
+    if (p->data == key){
+        std::cout << "The key has been found in the list" << std::endl;
+        return p;
+    }
+    return SLL::searchSLLrec(p->next, key);       
+}
+
+
+
+

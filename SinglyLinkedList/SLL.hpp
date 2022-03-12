@@ -16,10 +16,19 @@ public:
 
     void printSLL();
     void printSLLrec(Node *p);
+    
     bool insertSLL(int index, int x);
     int deleteSLL(int index);
+    
     int countSLL();
     int sumSLL();
+
+    int MaxSLL(Node *p);
+    int MinSLL(Node *p);
+
+    Node *searchSLL(int key);
+    Node *searchSLLrec(Node *p, int key);
+
     Node *getFirst();
 };
 

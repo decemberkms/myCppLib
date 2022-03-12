@@ -17,8 +17,20 @@ int main(){
 
     myList1.deleteSLL(0);
     myList1.printSLL(); 
-
+    // myList1.~SLL();
     myList1.printSLLrec(myList1.getFirst());
+
+    std::cout << std::endl;
+    std::cout << myList1.MaxSLL(myList1.getFirst()) << std::endl;
+    std::cout << myList1.MinSLL(myList1.getFirst()) << std::endl;
+    myList1.printSLL(); 
+
+    myList1.searchSLL(2);
+    myList1.printSLL();
+    
+    myList1.searchSLLrec(myList1.getFirst(), 3);
+    myList1.printSLL();
+
 
     return 0;
 }
