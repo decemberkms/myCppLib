@@ -291,6 +291,41 @@ void SLL::concatSLL(SLL &later){
     p->next = later.getFirst();  
 }
 
+void SLL::mergeSLL(SLL &later){
+    Node *ending;
+    Node *p = this->getFirst();
+    Node *q = later.getFirst();
+
+    Node *third;
+
+    if(p->data < q->data){
+        third = ending = p;
+        p = p->next;
+        third->next = nullptr;        
+    } else {
+        third = last = q;
+        q = q->next;
+        third->next = nullptr;
+    }
+
+    while (p && q) {
+        if (p->data < q->data){
+            last->next = p;
+            last = p;
+            p = p->next;
+            last->next = nullptr;
+        } else {
+            last->next = q;
+            last = q;
+            q = q->next;
+            last->next = nullptr;
+        }
+    }
+
+    if (p) last->next = p;
+    if (q != nullptr) last->next = q;
+}
+
 Node *SLL::searchSLL(int key){  
     Node *p = first;
     while (p){

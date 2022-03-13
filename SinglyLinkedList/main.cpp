@@ -63,10 +63,12 @@ int main(){
     myList2.printSLL();
     myList3.printSLL();
 
-    myList2.concatSLL(myList3);
-    myList2.printSLL();
-    myList3.printSLL();
+//     myList2.concatSLL(myList3);
+//     myList2.printSLL();
+//     myList3.printSLL();
 
+    myList2.mergeSLL(myList3);
+    myList2.printSLL();
 
     return 0;
 }

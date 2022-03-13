@@ -36,7 +36,7 @@ public:
     void reverseLinkSLLrec(Node *q, Node* p);
 
     void concatSLL(SLL &later);
-    void mergeSLL(Node *q);
+    void mergeSLL(SLL &later);
 
     Node *searchSLL(int key);
     Node *searchSLLrec(Node *p, int key);
