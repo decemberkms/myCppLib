@@ -33,42 +33,43 @@ int main(){
 
 
     SLL myList2;
-    for (int i = 0; i < 10; ++i)       
-           myList2.insertLastSLL(i);
+    myList2.insertLastSLL(1);
+    myList2.insertLastSLL(3);
+    myList2.insertLastSLL(5);
     myList2.printSLL();
     
     std::cout << std::boolalpha << myList2.ifSortedSLL() << std::endl;
 
     SLL myList3;
-    for (int i = 0; i < 10; ++i)       
-           myList3.insertLastSLL(1);
-    myList3.printSLL();
-    myList3.insertLastSLL(10);
-    myList3.printSLL();
-    myList3.deleteDuplinSortedSLL();
-    myList3.printSLL();
-   
-    myList2.reverseEleSLL();
+    myList3.insertLastSLL(2);
+    myList3.insertLastSLL(4);
+    myList3.insertLastSLL(6);
     myList2.printSLL();
+//     myList3.printSLL();
+//     myList3.deleteDuplinSortedSLL();
+//     myList3.printSLL();
+   
+//     myList2.reverseEleSLL();
+//     myList2.printSLL();
     
 //     myList2.reverseEleSLL();
 //     myList2.printSLL();
     
-    Node *p = nullptr;
+//     Node *p = nullptr;
 
-    myList2.reverseLinkSLLrec(p, myList2.getFirst());
-    myList2.printSLL();
+//     myList2.reverseLinkSLLrec(p, myList2.getFirst());
+//     myList2.printSLL();
 
-    std::cout << std::endl;
-    myList2.printSLL();
-    myList3.printSLL();
-
-//     myList2.concatSLL(myList3);
+//     std::cout << std::endl;
 //     myList2.printSLL();
 //     myList3.printSLL();
 
     myList2.mergeSLL(myList3);
     myList2.printSLL();
-
+    myList2.printSLL();
+/** error because two linked lists are combined then try to delete two at once
+ * 
+**/
+    
     return 0;
 }

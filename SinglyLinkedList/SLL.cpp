@@ -301,29 +301,29 @@ void SLL::mergeSLL(SLL &later){
     if(p->data < q->data){
         third = ending = p;
         p = p->next;
-        third->next = nullptr;        
+        ending->next = nullptr;        
     } else {
-        third = last = q;
+        third = ending = q;
         q = q->next;
-        third->next = nullptr;
+        ending->next = nullptr;
     }
 
     while (p && q) {
         if (p->data < q->data){
-            last->next = p;
-            last = p;
+            ending->next = p;
+            ending = p;
             p = p->next;
-            last->next = nullptr;
+            ending->next = nullptr;
         } else {
-            last->next = q;
-            last = q;
+            ending->next = q;
+            ending = q;
             q = q->next;
-            last->next = nullptr;
+            ending->next = nullptr;
         }
     }
 
-    if (p) last->next = p;
-    if (q != nullptr) last->next = q;
+    if (p) ending->next = p;
+    if (q != nullptr) ending->next = q;
 }
 
 Node *SLL::searchSLL(int key){  
