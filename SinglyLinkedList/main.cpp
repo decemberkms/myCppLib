@@ -39,5 +39,14 @@ int main(){
     
     std::cout << std::boolalpha << myList2.ifSortedSLL() << std::endl;
 
+    SLL myList3;
+    for (int i = 0; i < 10; ++i)       
+           myList3.insertLastSLL(1);
+    myList3.printSLL();
+    myList3.insertLastSLL(10);
+    myList3.printSLL();
+    myList3.deleteDuplinSortedSLL();
+    myList3.printSLL();
+
     return 0;
 }

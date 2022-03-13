@@ -154,7 +154,7 @@ void SLL::insertInSortedSLL(int x){
     Node *q;
     Node *p = first;
     
-    Node *temp;
+    Node *temp = new Node;
     temp->data = x;
     temp->next = nullptr;
 
@@ -187,7 +187,24 @@ bool SLL::ifSortedSLL(){
     }
     return true;
 }
- 
+
+void SLL::deleteDuplinSortedSLL(){
+    Node *p = first;
+    Node *q = first->next;
+
+    while (q){
+        if (p->data != q->data){
+            p = q;
+            q = q->next;
+        } else {
+            p->next = q->next;
+            std::cout << q->data << " is deleted (duplicate)" << std::endl;
+            delete q;
+            q = p->next;
+        }
+    }
+}
+
 int SLL::sumSLL(){
     Node *p = first;
     int sum = 0;

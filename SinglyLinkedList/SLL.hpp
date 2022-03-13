@@ -23,6 +23,7 @@ public:
     int deleteSLL(int index);
     
     bool ifSortedSLL();
+    void deleteDuplinSortedSLL();
 
     int countSLL();
     int sumSLL();
