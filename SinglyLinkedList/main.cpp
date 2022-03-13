@@ -64,12 +64,12 @@ int main(){
 //     myList2.printSLL();
 //     myList3.printSLL();
 
-    myList2.mergeSLL(myList3);
-    myList2.printSLL();
-    myList2.printSLL();
+//     myList3.mergeSLL(myList2);
+//     myList3.printSLL();
 /** error because two linked lists are combined then try to delete two at once
  * 
 **/
     
+    std::cout << myList2.isLoop() << std::endl;
     return 0;
 }

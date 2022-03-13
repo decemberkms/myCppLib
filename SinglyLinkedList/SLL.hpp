@@ -38,6 +38,8 @@ public:
     void concatSLL(SLL &later);
     void mergeSLL(SLL &later);
 
+    bool isLoop();
+
     Node *searchSLL(int key);
     Node *searchSLLrec(Node *p, int key);
 

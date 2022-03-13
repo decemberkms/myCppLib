@@ -326,6 +326,21 @@ void SLL::mergeSLL(SLL &later){
     if (q != nullptr) ending->next = q;
 }
 
+bool SLL::isLoop(){
+    Node *p = first;
+    Node *q = first;
+
+    do {
+        p = p->next;
+        q = q->next;
+
+        q = q != nullptr ? q->next : nullptr;
+        
+    } while( p && q);
+
+    return p == q ? true : false;
+}
+
 Node *SLL::searchSLL(int key){  
     Node *p = first;
     while (p){
