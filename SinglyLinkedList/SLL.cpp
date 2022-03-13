@@ -240,6 +240,57 @@ int SLL::MinSLL(Node *p){
     return min;
 }
 
+void SLL::reverseEleSLL(){
+    Node *p = first;
+    int i = 0;
+    int A[countSLL()];
+
+    while(p){
+        A[i] = p->data;
+        p = p->next;
+        i++;
+    }
+
+    p = first;
+    i--;
+
+    while(p){
+        p->data = A[i--];
+        p = p->next;
+    }
+}
+    
+void SLL::reverseLinkSLL(){
+    // sliding pointers 
+    Node *p = first;
+    Node *q = nullptr;
+    Node *r = nullptr;
+
+    while(p){
+        r = q;
+        q = p;
+        p = p->next;
+        q->next = r;
+    }
+}
+
+void SLL::reverseLinkSLLrec(Node *q, Node* p){
+    if (p){
+        SLL::reverseLinkSLLrec(p, p->next);
+        p->next = q;
+    } else
+        first = q;
+}
+
+void SLL::concatSLL(SLL &later){
+    Node *p = first;
+
+    while(p->next){
+        p = p->next;
+    }
+    p->next = later.getFirst();  
+}
+
 Node *SLL::searchSLL(int key){  
     Node *p = first;
     while (p){

@@ -24,12 +24,19 @@ public:
     
     bool ifSortedSLL();
     void deleteDuplinSortedSLL();
-
+    
     int countSLL();
     int sumSLL();
 
     int MaxSLL(Node *p);
     int MinSLL(Node *p);
+
+    void reverseEleSLL();
+    void reverseLinkSLL();
+    void reverseLinkSLLrec(Node *q, Node* p);
+
+    void concatSLL(SLL &later);
+    void mergeSLL(Node *q);
 
     Node *searchSLL(int key);
     Node *searchSLLrec(Node *p, int key);

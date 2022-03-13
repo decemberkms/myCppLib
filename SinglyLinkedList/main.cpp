@@ -47,6 +47,26 @@ int main(){
     myList3.printSLL();
     myList3.deleteDuplinSortedSLL();
     myList3.printSLL();
+   
+    myList2.reverseEleSLL();
+    myList2.printSLL();
+    
+//     myList2.reverseEleSLL();
+//     myList2.printSLL();
+    
+    Node *p = nullptr;
+
+    myList2.reverseLinkSLLrec(p, myList2.getFirst());
+    myList2.printSLL();
+
+    std::cout << std::endl;
+    myList2.printSLL();
+    myList3.printSLL();
+
+    myList2.concatSLL(myList3);
+    myList2.printSLL();
+    myList3.printSLL();
+
 
     return 0;
 }
