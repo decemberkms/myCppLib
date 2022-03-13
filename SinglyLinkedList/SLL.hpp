@@ -6,7 +6,7 @@
 
 class SLL{
 private:
-    Node *first;
+    Node *first, *last;
 
 public:
     SLL();
@@ -18,8 +18,12 @@ public:
     void printSLLrec(Node *p);
     
     bool insertSLL(int index, int x);
+    void insertLastSLL(int x);
+    void insertInSortedSLL(int x);
     int deleteSLL(int index);
     
+    bool ifSortedSLL();
+
     int countSLL();
     int sumSLL();
 

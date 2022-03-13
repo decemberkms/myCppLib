@@ -1,11 +1,11 @@
 #include "SLL.hpp"
 
 SLL::SLL(){
-    first = nullptr;
+    first = last = nullptr;
 }
 
 SLL::SLL(int A[], int n){
-    Node *temp, *last;
+    Node *temp;
     
     // Create first node
     first = new Node;
@@ -136,6 +136,58 @@ int SLL::deleteSLL(int index){
     return x;
 }
 
+void SLL::insertLastSLL(int x){
+    
+    Node *temp = new Node;
+    temp->data = x;
+    temp->next = nullptr;
+
+    if (first == nullptr)
+        first = last = temp;
+    else {
+        last->next = temp;
+        last = temp;
+    } 
+}
+
+void SLL::insertInSortedSLL(int x){
+    Node *q;
+    Node *p = first;
+    
+    Node *temp;
+    temp->data = x;
+    temp->next = nullptr;
+
+    if (first == nullptr){
+        first = temp;
+    } else{
+        while(p && p->data < x) {
+            q = p;
+            p = p->next;
+        }
+        if(p == first){
+            temp->next = first;
+            first = temp;
+        } else{
+            temp->next = q->next;
+            q->next = temp;
+        }    
+    }
+}
+
+bool SLL::ifSortedSLL(){
+    int x = INT8_MIN;
+    Node *p = first;
+    
+    while(p){
+        if (p->data < x)
+            return false;
+        x = p->data;
+        p = p->next;
+    }
+    return true;
+}
+ 
 int SLL::sumSLL(){
     Node *p = first;
     int sum = 0;
