@@ -289,23 +289,30 @@ void SLL::concatSLL(SLL &later){
         p = p->next;
     }
     p->next = later.getFirst();  
+
+    Node *z = later.first; // remove latter
+    while(later.first){
+        later.first = nullptr;
+        z = z->next;
+        later.first = z;
+    }
 }
 
-void SLL::mergeSLL(SLL &later){
+void SLL::mergeSLL(SLL &latter){
     Node *ending;
     Node *p = this->getFirst();
-    Node *q = later.getFirst();
+    Node *q = latter.getFirst();
 
     Node *third;
 
     if(p->data < q->data){
         third = ending = p;
         p = p->next;
-        ending->next = nullptr;        
+        third->next = nullptr;        
     } else {
         third = ending = q;
         q = q->next;
-        ending->next = nullptr;
+        third->next = nullptr;
     }
 
     while (p && q) {
@@ -324,6 +331,15 @@ void SLL::mergeSLL(SLL &later){
 
     if (p) ending->next = p;
     if (q != nullptr) ending->next = q;
+
+    this->first = third;
+    
+    Node *z = latter.first; //remove latter
+    while(latter.first){
+        latter.first = nullptr;
+        z = z->next;
+        latter.first = z;
+    }    
 }
 
 bool SLL::isLoop(){
@@ -365,7 +381,6 @@ Node *SLL::searchSLLrec(Node *p, int key){
     }
     return SLL::searchSLLrec(p->next, key);       
 }
-
 
 
 

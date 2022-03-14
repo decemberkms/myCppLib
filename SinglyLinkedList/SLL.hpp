@@ -35,8 +35,8 @@ public:
     void reverseLinkSLL();
     void reverseLinkSLLrec(Node *q, Node* p);
 
-    void concatSLL(SLL &later);
-    void mergeSLL(SLL &later);
+    void concatSLL(SLL &latter); // latter will be null pointer
+    void mergeSLL(SLL &latter); // latter will be null pointer
 
     bool isLoop();
 
@@ -44,6 +44,7 @@ public:
     Node *searchSLLrec(Node *p, int key);
 
     Node *getFirst();
+
 };
 
 

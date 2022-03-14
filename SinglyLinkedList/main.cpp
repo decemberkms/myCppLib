@@ -44,7 +44,12 @@ int main(){
     myList3.insertLastSLL(2);
     myList3.insertLastSLL(4);
     myList3.insertLastSLL(6);
-    myList2.printSLL();
+    myList3.printSLL();
+
+    // myList2.concatSLL(myList3);
+    // myList2.printSLL();
+
+    
 //     myList3.printSLL();
 //     myList3.deleteDuplinSortedSLL();
 //     myList3.printSLL();
@@ -60,16 +65,16 @@ int main(){
 //     myList2.reverseLinkSLLrec(p, myList2.getFirst());
 //     myList2.printSLL();
 
-//     std::cout << std::endl;
-//     myList2.printSLL();
-//     myList3.printSLL();
+    // std::cout << std::endl;
+    // myList2.printSLL();
+    // myList3.printSLL();
 
-//     myList3.mergeSLL(myList2);
-//     myList3.printSLL();
+    myList2.mergeSLL(myList3);
+    myList2.printSLL();
 /** error because two linked lists are combined then try to delete two at once
  * 
 **/
-    
-    std::cout << myList2.isLoop() << std::endl;
+    // std::cout << myList2.countSLL() << std::endl;
+    // std::cout << myList2.isLoop() << std::endl;
     return 0;
 }
