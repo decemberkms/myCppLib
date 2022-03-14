@@ -352,7 +352,7 @@ bool SLL::isLoop(){
 
         q = q != nullptr ? q->next : nullptr;
         
-    } while( p && q);
+    } while( p && q && p != q);
 
     return p == q ? true : false;
 }
