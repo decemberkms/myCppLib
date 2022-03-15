@@ -121,6 +121,8 @@ int CSLL::MinCSLL(Node *p){
 }
 
 bool CSLL::insertCSLL(int index, int x){
+    // index 
+    // index(0) {1} index(1) {2} index(2) {3} index(3) {4} index(4)
     Node *temp, *p = head;
     
     // sanity check
@@ -157,39 +159,51 @@ bool CSLL::insertCSLL(int index, int x){
     return true;
 }
 
-// int CSLL::deleteCSLL(int index){
-//     index++;
-//     Node *p, *q =nullptr;
+int CSLL::deleteCSLL(int index){
+    // index
+    // {1} {2} {3} {4}
+    // (1) (2) (3) (4)
+    // index++;
+    Node *p;
 
-//     int x = -1;
+    int x = -1;
 
-//     // sanity check
-//     if (index < 0 || index > countCSLL()){
-//         std::cout << "Invalid operation" << std::endl;
-//         return -1;
-//     }
+    // sanity check
+    if (index < 0 || index > countCSLL()){
+        std::cout << "Invalid operation" << std::endl;
+        return -1;
+    }
 
-//     if (index == 1){
-//         p = first;
-//         first = first->next;
-//         x = p->data;
-//         delete p;
-//     } else{
-//         p = first;
+    if (index == 1){
+        p = head;
+        while (p->next != head){
+            p = p->next;
+        }
+        x = head->data;
 
-//         for (int i = 0; i < index - 1; ++i){
-//             q = p;
-//             p = p->next;
-//         }
+        if (p == head){
+            delete head;
+            head = nullptr;
+        } else{
+            p->next = head->next;
+            delete head;
 
-//         q->next = p->next;
-//         x = p->data;
+            head = p->next;
+        }        
+    } else{
+        p = head;  // no tail pointer so in the for loop, up to index - 2
+        for (int i = 0; i < index - 2; ++i){
+            p = p->next;
+        }
+        Node * q = p->next;
+        p->next = q->next;
+        x = q->data;
 
-//         delete p;
-//     }
+        delete q;
+    }
 
-//     return x;
-// }
+    return x;
+}
 
 // void CSLL::insertLastCSLL(int x){
     

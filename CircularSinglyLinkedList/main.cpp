@@ -12,10 +12,15 @@ int main(){
     std::cout << myCList1.MaxCSLL(myCList1.getHead()) << std::endl;
     std::cout << myCList1.MinCSLL(myCList1.getHead()) << std::endl;
 
-    myCList1.insertCSLL(4, 10);
-    myCList1.insertCSLL(0, 11);
-    myCList1.insertCSLL(6, 12);
+    // myCList1.insertCSLL(4, 10);
+    // myCList1.insertCSLL(0, 11);
+    // myCList1.insertCSLL(6, 12);
+    // myCList1.printCSLL();
+
+    myCList1.deleteCSLL(4);
     myCList1.printCSLL();
+    // myCList1.deleteCSLL(2);
+    // myCList1.printCSLL();
 
     return 0;
 }

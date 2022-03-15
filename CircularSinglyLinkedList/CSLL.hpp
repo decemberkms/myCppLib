@@ -20,7 +20,7 @@ public:
     bool insertCSLL(int index, int x);
     // void insertLastCSLL(int x);
     // void insertInSortedCSLL(int x);
-    // int deleteCSLL(int index);
+    int deleteCSLL(int index);
     
     // bool ifSortedCSLL();
     // void deleteDuplinSortedCSLL();
