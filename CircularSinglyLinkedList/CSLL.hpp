@@ -15,9 +15,9 @@ public:
     ~CSLL();
 
     void printCSLL();
-    // void printCSLLrec(Node *p);
+    void printCSLLrec(Node *p);
     
-    // bool insertCSLL(int index, int x);
+    bool insertCSLL(int index, int x);
     // void insertLastCSLL(int x);
     // void insertInSortedCSLL(int x);
     // int deleteCSLL(int index);
@@ -25,11 +25,11 @@ public:
     // bool ifSortedCSLL();
     // void deleteDuplinSortedCSLL();
     
-    // int countCSLL();
-    // int sumCSLL();
+    int countCSLL();
+    int sumCSLL();
 
-    // int MaxCSLL(Node *p);
-    // int MinCSLL(Node *p);
+    int MaxCSLL(Node *p);
+    int MinCSLL(Node *p);
 
     // void reverseEleCSLL();
     // void reverseLinkCSLL();

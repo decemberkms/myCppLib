@@ -63,53 +63,99 @@ void CSLL::printCSLL(){
 
 }
 
-// void CSLL::printCSLLrec(Node *p){
-//     if (p != nullptr){
-//         std::cout << p->data << " -> ";
-//         CSLL::printCSLLrec(p->next);
-//     }
-//     // std::cout << "\\0" << std::endl;
-// }
+void CSLL::printCSLLrec(Node *p){
+    static bool flag = 0;
 
-// int CSLL::countCSLL(){
-//     Node *p = first;
-//     int count = 0;
+    if(p != head || flag == 0){
+        flag = 1;
+        std::cout << p->data << " -> ";
+        CSLL::printCSLLrec(p->next);
+    }
+    flag = 0;
+}
 
-//     while(p){
-//         ++count;
-//         p = p->next;    
-//     }
+int CSLL::countCSLL(){
+    Node *p = head;
+    int count = 0;
 
-//     return count;
-// }
+    do {
+        ++count;
+        p = p->next;
+    } while(p != head);
 
-// bool CSLL::insertCSLL(int index, int x){
-//     Node *temp, *p = first;
+    return count;
+}
+
+int CSLL::sumCSLL(){
+    Node *p = head;
+    int sum = 0;
+
+    do {
+        sum += p->data;
+        p = p->next;
+    } while (p != head);
+
+    return sum;
+}
+
+int CSLL::MaxCSLL(Node *p){
+    int max = INT8_MIN;
+
+    do {
+        if (p->data > max)
+            max = p->data;
+        p = p->next;
+    } while(p != head);    
+    return max;
+};
+
+int CSLL::MinCSLL(Node *p){
+    int min = INT8_MAX;
+
+    do {
+        if (p->data < min)
+            min = p->data;
+        p = p->next;
+    } while(p != head);    
+    return min;
+}
+
+bool CSLL::insertCSLL(int index, int x){
+    Node *temp, *p = head;
     
-//     // sanity check
-//     if (index < 0 || index > countCSLL()){
-//         std::cout << "Invalid operation" << std::endl;
-//         return false;
-//     }
+    // sanity check
+    if (index < 0 || index > countCSLL()){
+        std::cout << "Invalid operation" << std::endl;
+        return false;
+    }
     
-//     // create temp node for new node
-//     temp = new Node;
-//     temp->data = x;
-//     temp->next = nullptr;
+    // create temp node for new node
+    temp = new Node;
+    temp->data = x;
+    temp->next = nullptr;
 
-//     // put the new node into the position
-//     if (index == 0){
-//         temp->next = first;
-//         first = temp;
-//     } else{
-//         for (int i = 0; i < index -1; ++i)
-//             p = p->next;
+    // put the new node into the position
+    if (index == 0){
+        if (head == nullptr){ // if it's empty
+            head = temp;
+            head->next = head;
+        } else{
+            while (p->next != head) {
+                p = p->next;
+            }
+            p->next = temp;
+            temp->next = head;
+            // head = temp;
+        }
+    } else{
+        for (int i = 0; i < index -1; ++i)
+            p = p->next;
         
-//         temp->next = p->next;
-//         p->next = temp;
-//     }
-//     return true;
-// }
+        temp->next = p->next;
+        p->next = temp;
+    }
+    return true;
+}
 
 // int CSLL::deleteCSLL(int index){
 //     index++;
@@ -212,41 +258,6 @@ void CSLL::printCSLL(){
 //             q = p->next;
 //         }
 //     }
-// }
-
-// int CSLL::sumCSLL(){
-//     Node *p = first;
-//     int sum = 0;
-
-//     while (p){
-//         sum += p->data;
-//         p = p->next;
-//     }
-//     return sum;
-// }
-
-// int CSLL::MaxCSLL(Node *p){
-//     // std::cout << &first << std::endl;
-//     // std::cout << &p << std::endl;
-//     int max = INT8_MIN;
-
-//     while(p){
-//         if (p->data > max)
-//             max = p->data;
-//         p = p->next;
-//     }    
-//     return max;
-// };
-
-// int CSLL::MinCSLL(Node *p){
-//     int min = INT8_MAX;
-
-//     while(p){
-//         if (p->data < min)
-//             min = p->data;
-//         p = p->next;
-//     }    
-//     return min;
 // }
 
 // void CSLL::reverseEleCSLL(){
