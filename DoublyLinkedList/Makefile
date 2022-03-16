@@ -1,12 +1,12 @@
 
-output: main.o CSLL.o
-	g++ main.o CSLL.o -o main
+output: main.o DSSL.o
+	g++ main.o DSSL.o -o main
 
 main.o: main.cpp
 	g++ -c main.cpp
 
-SLL.o: CSLL.cpp CSLL.hpp
-	g++ -c CSLL.cpp
+SLL.o: DSSL.cpp DSSL.hpp
+	g++ -c DSSL.cpp
 
 clean: 
 	rm *.o main
