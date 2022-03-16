@@ -100,10 +100,60 @@ void DSLL::insertDSLL(int index, int x){
     }
 }
 
-void DSLL::deleteDSLL(int index){
+int DSLL::deleteDSLL(int index){
+// index instruction 
+//  (1) (2) (3) (4)
+//   1   2   3   4  
+    int x = -1;
+    
+    if (index < 1 || index > countDSLL()){
+        std::cout << "Invalid operation: out of range" << std::endl;
+        exit(0);
+    }
 
+    if (index == 1){
+        Node* p = first;
+        first = first->next;
+        x = p->data;
+        delete p;  
+
+        if (first)
+            first->prev = nullptr;  
+    } else {
+        Node* p = first;
+
+        for (int i = 0; i < index - 1; ++i)
+            p = p->next;
+
+        p->prev->next = p->next;
+        if (p->next)  // check if the next of p is valid
+            p->next->prev = p->prev;
+
+        x = p->data;
+        delete p;       
+    }
+    return x;
 }
 
+void DSLL::reverseLink(){
+    Node* p = first;
+    Node* temp;
+    
+    last = first;
+
+    while (p){
+        temp = p->next; // swap the values in the class. simple
+        p->next = p->prev;
+        p->prev = temp;
+
+        p = p->prev;
+
+        if (p != nullptr && p->next == nullptr){
+            first = p;
+
+        }
+    }
+}
 
 
 

@@ -12,12 +12,13 @@ public:
 
     int countDSLL();
     int sumDSLL();
-    
+
     void printDSSL();
 
     void insertDSLL(int index, int x);
-    void deleteDSLL(int index);
+    int deleteDSLL(int index);
 
+    void reverseLink();
     
 
     Node* getFirst(){return this->first;};
