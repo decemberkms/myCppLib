@@ -150,7 +150,6 @@ void DSLL::reverseLink(){
 
         if (p != nullptr && p->next == nullptr){
             first = p;
-
         }
     }
 }
