@@ -76,5 +76,8 @@ int main(){
 **/
     // std::cout << myList2.countSLL() << std::endl;
     // std::cout << myList2.isLoop() << std::endl;
+
+    SLL myList4 = myList2;
+    myList4.printSLL();
     return 0;
 }

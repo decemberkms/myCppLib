@@ -29,6 +29,35 @@ SLL::SLL(int A[], int n){
     std::cout << "|Singly linked list| created" << std::endl;
 }
 
+SLL::SLL(const SLL &source){  // copy constructor
+    Node *temp;
+
+    first = new Node;
+    first->data = source.first->data;
+    first->next = source.first->next;
+    
+    last = first;
+    
+    Node *p = source.first;
+    source.countSLL();
+    p = p->next;
+    
+    //Create nodes
+    for (int i = 1; i < source.countSLL(); ++i){
+        temp = new Node;
+        temp->data = p->data;
+        temp->next = nullptr;
+
+        p = p->next;
+        // point last's next to temp
+        last->next = temp;
+        // set last = temp
+        last = temp;
+    }
+
+    std::cout << "|Singly linked list| Copy constuctor " << std::endl;
+}
+
 SLL::~SLL(){
     Node *p = first;
 
@@ -62,7 +91,7 @@ void SLL::printSLLrec(Node *p){
     // std::cout << "\\0" << std::endl;
 }
 
-int SLL::countSLL(){
+int SLL::countSLL() const {
     Node *p = first;
     int count = 0;
 
