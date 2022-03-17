@@ -2,6 +2,7 @@
 
 SLL::SLL(){
     first = last = nullptr;
+       std::cout << "|Singly linked list| no args constuctor " << std::endl;
 }
 
 SLL::SLL(int A[], int n){
@@ -26,7 +27,7 @@ SLL::SLL(int A[], int n){
         // set last = temp
         last = temp;
     }
-    std::cout << "|Singly linked list| created" << std::endl;
+    std::cout << "|Singly linked list| args constructor" << std::endl;
 }
 
 SLL::SLL(const SLL &source){  // copy constructor
@@ -56,6 +57,15 @@ SLL::SLL(const SLL &source){  // copy constructor
     }
 
     std::cout << "|Singly linked list| Copy constuctor " << std::endl;
+}
+
+SLL::SLL(SLL &&rhs){
+    this->first = rhs.first;
+    rhs.first = nullptr;
+    this->last = rhs.last;
+    rhs.last = nullptr;
+    
+    std::cout << "|Singly linked list| Move constuctor " << std::endl;
 }
 
 SLL::~SLL(){

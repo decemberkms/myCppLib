@@ -12,6 +12,7 @@ public:
     SLL();
     SLL(int A[], int n);
     SLL(const SLL &source); //copy constructor
+    SLL(SLL &&source); // move constructor
 
     ~SLL();
 
@@ -26,7 +27,7 @@ public:
     bool ifSortedSLL();
     void deleteDuplinSortedSLL();
     
-    int countSLL() const; 
+    int countSLL() const;  //const member function due to copy constructor - const SLL& source
     int sumSLL();
 
     int MaxSLL(Node *p);

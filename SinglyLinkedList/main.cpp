@@ -1,9 +1,13 @@
 #include "SLL.hpp"
 #include <iomanip>
 
+SLL myFunc1(int *A, int size_var){   
+    return SLL(A, size_var);
+}
+
 int main(){
-    // int A[] = {1,2,3,4,5,6,7};
-    // int size_n = sizeof(A)/sizeof(int);
+    int A[] = {1,2,3,4,5,6,7};
+    int size_n = sizeof(A)/sizeof(int);
 
     // SLL myList1(A, size_n);
     // myList1.printSLL(); 
@@ -79,5 +83,8 @@ int main(){
 
     SLL myList4 = myList2;
     myList4.printSLL();
+    SLL myList5 = myFunc1(A,size_n);
+    myList5.printSLL();
+
     return 0;
 }
