@@ -98,6 +98,7 @@ int main(){
     myList2.printSLL();
 
     std::vector<SLL> myVec;
+    myVec.reserve(10);
     myVec.push_back(SLL(A, size_n));
     myVec.at(0).printSLL();
     myVec.push_back(SLL(myList2));

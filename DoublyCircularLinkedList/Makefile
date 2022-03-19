@@ -1,12 +1,12 @@
 
-output: main.o CSLL.o
-	g++ main.o CSLL.o -o main
+output: main.o List.o
+	g++ main.o List.o -o main
 
 main.o: main.cpp
 	g++ -c main.cpp
 
-SLL.o: CSLL.cpp CSLL.hpp
-	g++ -c CSLL.cpp
+List.o: List.cpp List.hpp
+	g++ -c List.cpp
 
 clean: 
 	rm *.o main
