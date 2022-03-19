@@ -34,17 +34,17 @@ SLL::SLL(const SLL &source){  // copy constructor
     std::cout << "|Singly linked list| Copy constuctor (first address - rhs: " << source.first << ")"<< std::endl;
     // free memory for alreay exist
    
-    Node *p_old = first;
+    // Node *p_old = first;
 
-    // std::cout << "First data " << p->data << std::endl;
-    if (p_old){
-        while(first){
-            first = first->next;
-            delete p_old;
-            p_old = first;
-        }
-    }
-    //
+    // // std::cout << "First data " << p->data << std::endl;
+    // if (p_old){
+    //     while(first){
+    //         first = first->next;
+    //         delete p_old;
+    //         p_old = first;
+    //     }
+    // }
+    // //
   
     Node *temp;
 
@@ -55,20 +55,23 @@ SLL::SLL(const SLL &source){  // copy constructor
     last = first;
     
     Node *p = source.first;
-    source.countSLL();
     p = p->next;
     
     //Create nodes
-    for (int i = 1; i < source.countSLL(); ++i){
-        temp = new Node;
-        temp->data = p->data;
-        temp->next = nullptr;
 
+    
+    for (int i = 1; i < source.countSLL(); ++i){
+        insertLastSLL(p->data);
         p = p->next;
-        // point last's next to temp
-        last->next = temp;
-        // set last = temp
-        last = temp;
+        // temp = new Node;
+        // temp->data = p->data;
+        // temp->next = nullptr;
+
+        // p = p->next;
+        // // point last's next to temp
+        // last->next = temp;
+        // // set last = temp
+        // last = temp;
     }
     std::cout << "|Singly linked list| Copy constuctor (first address - lsh: " << first << ")"<< std::endl;
     
@@ -86,6 +89,18 @@ SLL::SLL(SLL &&rhs) noexcept  // move consturcot
 
 SLL& SLL::operator= (const SLL &rhs){ // copy assignment operator
     std::cout << "|Singly linked list| copy assignment operator (first address - rhs: " <<  rhs.first << std::endl;
+    Node *p_old = first;
+
+    // std::cout << "First data " << p->data << std::endl;
+    if (p_old){
+        while(first){
+            first = first->next;
+            delete p_old;
+            p_old = first;
+        }
+    }
+    //
+    
     Node *temp;
 
     first = new Node;

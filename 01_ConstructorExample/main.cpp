@@ -51,6 +51,7 @@ Move::~Move() {
 
 int main() {
     vector<Move> vec;
+    vec.reserve(10);
 
     vec.push_back(Move{10});
 
