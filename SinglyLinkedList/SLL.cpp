@@ -59,13 +59,27 @@ SLL::SLL(const SLL &source){  // copy constructor
     std::cout << "|Singly linked list| Copy constuctor " << std::endl;
 }
 
-SLL::SLL(SLL &&rhs){
-    this->first = rhs.first;
-    rhs.first = nullptr;
-    this->last = rhs.last;
-    rhs.last = nullptr;
-    
+SLL::SLL(SLL &&rhs) noexcept  // move consturcot
+    : first{nullptr}, last{nullptr} {
+        
+    std::swap(first, rhs.first);
+    std::swap(last, rhs.last);    
     std::cout << "|Singly linked list| Move constuctor " << std::endl;
+}
+
+SLL& SLL::operator= (SLL &rhs){ // move assignment operator
+    std::cout << "|Singly linked list| Move assignment operator " << std::endl;
+    if(this == &rhs) return *this;
+    
+    first = rhs.first;
+    last = rhs.last;
+
+    rhs.first = nullptr;
+    rhs.last = nullptr;
+    // std::swap(first, rhs.first);
+    // std::swap(last, rhs.last); 
+    
+    return *this;
 }
 
 SLL::~SLL(){

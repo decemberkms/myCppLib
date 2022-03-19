@@ -42,7 +42,7 @@ int main(){
     myList2.insertLastSLL(5);
     myList2.printSLL();
     
-    std::cout << std::boolalpha << myList2.ifSortedSLL() << std::endl;
+    // std::cout << std::boolalpha << myList2.ifSortedSLL() << std::endl;
 
     SLL myList3;
     myList3.insertLastSLL(2);
@@ -73,18 +73,22 @@ int main(){
     // myList2.printSLL();
     // myList3.printSLL();
 
-    myList2.mergeSLL(myList3);
-    myList2.printSLL();
+    // myList2.mergeSLL(myList3);
+    // myList2.printSLL();
 /** error because two linked lists are combined then try to delete two at once
  * 
 **/
     // std::cout << myList2.countSLL() << std::endl;
     // std::cout << myList2.isLoop() << std::endl;
 
-    SLL myList4 = myList2;
-    myList4.printSLL();
+    // SLL myList4 = myList3;
+    // myList4.printSLL();
     SLL myList5 = myFunc1(A,size_n);
     myList5.printSLL();
+
+    myList5 = myList2;
+    myList5.printSLL();
+    myList2.printSLL();
 
     return 0;
 }

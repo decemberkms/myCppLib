@@ -12,7 +12,9 @@ public:
     SLL();
     SLL(int A[], int n);
     SLL(const SLL &source); //copy constructor
-    SLL(SLL &&source); // move constructor
+    SLL(SLL &&source) noexcept; // move constructor
+
+    SLL& operator= (SLL &rhs); // move assignment operator
 
     ~SLL();
 
