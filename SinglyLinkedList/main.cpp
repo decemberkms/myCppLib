@@ -1,5 +1,6 @@
 #include "SLL.hpp"
 #include <iomanip>
+#include <vector>
 
 SLL myFunc1(int *A, int size_var){   
     return SLL(A, size_var);
@@ -85,10 +86,22 @@ int main(){
     // myList4.printSLL();
     SLL myList5 = myFunc1(A,size_n);
     myList5.printSLL();
-
+    
+    std::cout << "Address of list 5: " << myList5.getFirst() << std::endl;
+    
     myList5 = myList2;
+
+    std::cout << "Address of list 2: " << myList2.getFirst() << std::endl;
+    std::cout << "Address of list 5: " << myList5.getFirst() << std::endl;
+    
     myList5.printSLL();
     myList2.printSLL();
 
+    std::vector<SLL> myVec;
+    myVec.push_back(SLL(A, size_n));
+    myVec.at(0).printSLL();
+    myVec.push_back(SLL(myList2));
+    myVec.at(1).printSLL();
+    
     return 0;
 }

@@ -14,7 +14,8 @@ public:
     SLL(const SLL &source); //copy constructor
     SLL(SLL &&source) noexcept; // move constructor
 
-    SLL& operator= (SLL &rhs); // move assignment operator
+    SLL& operator= (const SLL &rhs); // copy assignment operator
+    SLL& operator= (SLL &&rhs); // move assignment operator
 
     ~SLL();
 

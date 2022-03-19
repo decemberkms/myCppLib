@@ -2,7 +2,7 @@
 
 SLL::SLL(){
     first = last = nullptr;
-       std::cout << "|Singly linked list| no args constuctor " << std::endl;
+       std::cout << "|Singly linked list| no args constuctor (first address: " << first  << ")" << std::endl;
 }
 
 SLL::SLL(int A[], int n){
@@ -27,10 +27,25 @@ SLL::SLL(int A[], int n){
         // set last = temp
         last = temp;
     }
-    std::cout << "|Singly linked list| args constructor" << std::endl;
+    std::cout << "|Singly linked list| args constructor (first address: " << first << ")" << std::endl;
 }
 
 SLL::SLL(const SLL &source){  // copy constructor
+    std::cout << "|Singly linked list| Copy constuctor (first address - rhs: " << source.first << ")"<< std::endl;
+    // free memory for alreay exist
+   
+    Node *p_old = first;
+
+    // std::cout << "First data " << p->data << std::endl;
+    if (p_old){
+        while(first){
+            first = first->next;
+            delete p_old;
+            p_old = first;
+        }
+    }
+    //
+  
     Node *temp;
 
     first = new Node;
@@ -55,8 +70,9 @@ SLL::SLL(const SLL &source){  // copy constructor
         // set last = temp
         last = temp;
     }
-
-    std::cout << "|Singly linked list| Copy constuctor " << std::endl;
+    std::cout << "|Singly linked list| Copy constuctor (first address - lsh: " << first << ")"<< std::endl;
+    
+    
 }
 
 SLL::SLL(SLL &&rhs) noexcept  // move consturcot
@@ -64,11 +80,42 @@ SLL::SLL(SLL &&rhs) noexcept  // move consturcot
         
     std::swap(first, rhs.first);
     std::swap(last, rhs.last);    
-    std::cout << "|Singly linked list| Move constuctor " << std::endl;
+    std::cout << "|Singly linked list| Move constuctor (first address - rhs: " <<  rhs.first << ")" << std::endl;
+    std::cout << "|Singly linked list| Move constuctor (first address - lhs: " <<  first << ")" << std::endl;    
 }
 
-SLL& SLL::operator= (SLL &rhs){ // move assignment operator
-    std::cout << "|Singly linked list| Move assignment operator " << std::endl;
+SLL& SLL::operator= (const SLL &rhs){ // copy assignment operator
+    std::cout << "|Singly linked list| copy assignment operator (first address - rhs: " <<  rhs.first << std::endl;
+    Node *temp;
+
+    first = new Node;
+    first->data = rhs.first->data;
+    first->next = rhs.first->next;
+    
+    last = first;
+    
+    Node *p = rhs.first;
+    rhs.countSLL();
+    p = p->next;
+    
+    //Create nodes
+    for (int i = 1; i < rhs.countSLL(); ++i){
+        temp = new Node;
+        temp->data = p->data;
+        temp->next = nullptr;
+
+        p = p->next;
+        // point last's next to temp
+        last->next = temp;
+        // set last = temp
+        last = temp;
+    }
+    std::cout << "|Singly linked list| copy assignment operator (first address - lhs: " << first << std::endl;
+    return *this;
+}
+
+SLL& SLL::operator= (SLL &&rhs){ // move assignment operator
+    std::cout << "|Singly linked list| Move assignment operator (first address - rhs: " << rhs.first << std::endl;
     if(this == &rhs) return *this;
     
     first = rhs.first;
@@ -78,19 +125,22 @@ SLL& SLL::operator= (SLL &rhs){ // move assignment operator
     rhs.last = nullptr;
     // std::swap(first, rhs.first);
     // std::swap(last, rhs.last); 
-    
+    std::cout << "|Singly linked list| Move assignment operator (first address - lhs: " << first << std::endl;
     return *this;
 }
 
 SLL::~SLL(){
     Node *p = first;
 
+    std::cout << "|Singly linked list| deleted for the first addess: " << p << std::endl;
+    // std::cout << "First data " << p->data << std::endl;
+
     while(first){
         first = first->next;
         delete p;
         p = first;
     }
-    std::cout << "|Singly linked list| deleted" << std::endl;
+    
 }
 
 Node *SLL::getFirst(){
@@ -145,6 +195,7 @@ bool SLL::insertSLL(int index, int x){
     if (index == 0){
         temp->next = first;
         first = temp;
+        std::cout << "|Singly linked list| Insert - first address: " << first << std::endl;
     } else{
         for (int i = 0; i < index -1; ++i)
             p = p->next;
@@ -195,8 +246,10 @@ void SLL::insertLastSLL(int x){
     temp->data = x;
     temp->next = nullptr;
 
-    if (first == nullptr)
+    if (first == nullptr) {
         first = last = temp;
+        std::cout << "|Singly linked list| Insert - first address: " << first << std::endl;
+    }
     else {
         last->next = temp;
         last = temp;

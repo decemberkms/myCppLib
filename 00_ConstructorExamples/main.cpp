@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 class Holder
 {
@@ -61,7 +62,7 @@ public:
 
     ~Holder() // Destructor
     {   
-        std::cout << "Destructor is is calledother.m_size" << std::endl;
+        std::cout << "Destructor " << m_size << " is calledother.m_size" << std::endl;
         delete[] m_data;
     }
 };
@@ -72,7 +73,9 @@ Holder createHolder(int size)
 }
 
 int main()
-{
+{   
+    std::vector<Holder> myVec;
+
     Holder h1(1000);                // regular constructor
     Holder h2(h1);                  // copy constructor (lvalue in input)
     Holder h3 = createHolder(2000); // move constructor (rvalue in input) (1)
@@ -81,6 +84,8 @@ int main()
 
     h2 = h3;                // assignment operator (lvalue in input)
     h2 = Holder(10); // move assignment operator (rvalue in input)
+
+    myVec.push_back(Holder(10));
 
     return 0;
 }
