@@ -31,9 +31,16 @@ public:
     ~List();
 
 
+    /*** Overloaded oeprators ***/
+    // copy assignment operator
+    List& operator=(const List& rhs);
+    
+
+    /*** Functions ***/
+
     void printList();
 
-    int countList();
+    int countList() const;
 
     Node* getHead(){return m_head;};
     Node* getTail(){return m_tail;};

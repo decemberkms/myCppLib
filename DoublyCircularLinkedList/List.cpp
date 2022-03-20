@@ -2,7 +2,7 @@
 
 using namespace  std;
 
-int List::countList(){
+int List::countList() const{
     Node *temp = m_head;
 
     int count = 0;
@@ -62,7 +62,7 @@ List::List(const List &rhs){
     Node* p = rhs.m_head;
     p = p->next;
 
-    for (int i = 1; i < countList();++i){
+    for (int i = 1; i < rhs.countList();++i){
         temp = new Node;
         
         temp->data = p->data;
@@ -83,19 +83,80 @@ List::List(const List &rhs){
 List::~List(){
     cout << "|List destructor| Deleted - head address: " << m_head << endl;
     Node* temp = m_head;
-    cout << m_head->data << endl;
+   
+    while (temp->next != m_head){
+        temp = temp->next;
+    }
 
-    if (m_head->next == m_head)
+    while (temp != m_head){
+        temp->next = m_head->next;
         delete m_head;
+        m_head = temp->next;
+    }
+ 
+    if (temp == m_head){
+        delete m_head;
+        m_head = nullptr;
+    }
+}
 
-    do {
-        cout << m_head->data << endl;
+
+
+List& List::operator=(const List& rhs){
+    cout << "|List assignment|- rhs: head address: " << rhs.m_head << endl;
+    
+    if (this == &rhs) return *this;
+    // Remove List
+    Node* temp_rm = m_head;
+   
+    while (temp_rm->next != m_head){
+        temp_rm = temp_rm->next;
+    }
+
+    while (temp_rm != m_head){
+        temp_rm->next = m_head->next;
+        delete m_head;
+        m_head = temp_rm->next;
+    }
+ 
+    if (temp_rm == m_head){
+        delete m_head;
+        m_head = nullptr;
+    }
+    //////////////////////////////////
+
+    // Assign new list
+    Node* temp;
+    
+    m_head = new Node;
+    m_head->data = rhs.m_head->data;
+    m_head->next = m_head;
+    m_head->prev = m_head;
+    m_tail = m_head;
+
+    Node* p = rhs.m_head;
+    p = p->next;
+
+    for (int i = 1; i < rhs.countList();++i){
+        temp = new Node;
         
-        m_head = m_head->next;
-        delete m_head;
-        temp = m_head;
-    } while(m_head->next != m_head);
-  
+        temp->data = p->data;
+
+        temp->next = m_head;
+        temp->prev = m_tail;
+        
+        
+        m_tail->next = temp;
+        m_tail = temp;   
+        m_head->prev = m_tail;
+        p = p->next;
+    }
+    /////////////////////////////
+
+    cout << "|List assignment|- lhs: head address: " << m_head << endl;
+    
+    return *this;
+
 }
 
 
