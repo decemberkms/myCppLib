@@ -8,7 +8,11 @@ int main(){
 
     myList1.printList();
 
-    std::cout << myList1.getHead()->prev->data << std::endl;
+    std::cout << myList1.countList() << std::endl;
+    std::cout << myList1.getHead()->next->data << std::endl;
+
+    List myList2(myList2);
+    
 
 
 

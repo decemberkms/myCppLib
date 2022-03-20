@@ -23,7 +23,7 @@ public:
     // args constructor
     List(int A[], int lstSize);
     // copy constructor
-
+    List(const List &rhs);
     // move constructor
 
     
@@ -32,6 +32,8 @@ public:
 
 
     void printList();
+
+    int countList();
 
     Node* getHead(){return m_head;};
     Node* getTail(){return m_tail;};
