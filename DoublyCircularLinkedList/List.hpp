@@ -38,6 +38,8 @@ public:
 
     /*** Functions ***/
 
+    void insertList(int index, int key);
+
     void printList();
 
     int countList() const;

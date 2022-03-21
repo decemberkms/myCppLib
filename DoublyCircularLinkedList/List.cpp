@@ -181,3 +181,61 @@ void List::printList(){
     cout << "|Back to head|\n" << endl;
 
 }
+
+void List::insertList(int index, int key){
+    // index instruction
+    // List:    1   2   3   4   5
+    // Index:(0) (1) (2) (3) (4) (5)
+
+    if (index < 0 || index > countList()){
+        cout << "|List insertion| Invalid operation" << endl;
+        exit(0);
+    }
+
+    // Create a new node with a data
+    Node *temp, *p = m_head;
+    temp = new Node;
+    temp->data = key;
+
+    if (index == 0){
+        if(m_head == nullptr){
+            m_head = temp;
+            m_head->next = m_head;
+            m_head->prev = m_head;
+            m_head = m_tail;
+        } else{
+            temp->next = m_head;
+            m_head->prev = temp;
+
+            temp->prev = m_tail;
+            m_tail->next = temp;
+
+            m_head = temp;
+        }
+    } else {
+        for (int i = 0; i < index; ++i)
+            p = p->next;
+        
+        p->prev->next = temp;
+        temp->prev = p->prev;
+
+        p->prev = temp;
+        temp->next = p;
+
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
