@@ -5,6 +5,12 @@ using namespace  std;
 int List::countList() const{
     Node *temp = m_head;
 
+    if (m_head == nullptr){
+        cout << "|List count| Invalid operation" << endl;
+        exit(0);
+    }
+        
+
     int count = 0;
     do {
         temp = temp->next;
@@ -169,6 +175,11 @@ List& List::operator=(const List& rhs){
 }
 
 void List::printList(){
+    if (m_head == nullptr){
+        cout << "|List print| Invalid operation" << endl;
+        exit(0);
+    }
+
     Node *temp = m_head;
     cout << "\n|Head address|: " << temp << endl;
     cout << "|Head starts| -> ";
@@ -222,10 +233,50 @@ void List::insertList(int index, int key){
         p->prev = temp;
         temp->next = p;
 
+        if (index == countList())
+            m_tail = temp;
     }
-    
-    
 }
+
+void List::insertListLast(int key){
+    //insert only at the end
+    // Create a new node with a data
+
+    Node *temp, *p = m_head;
+    temp = new Node;
+    temp->data = key;
+
+    if (m_head == nullptr){
+        temp->next = temp;
+        temp->prev = temp;
+        m_head = m_tail = temp;
+        // m_head = temp;
+        // m_head->next = m_head;
+        // m_head->prev = m_head;
+        // m_head = m_tail;
+    } else{
+        if (m_head->next = m_head){
+            temp->next = m_head;
+            m_head->next = temp;
+            temp->prev = m_tail;
+            m_tail->prev = temp;
+
+            m_tail = temp;
+        } else{
+            p->prev->next = temp;
+            temp->prev = p->prev;
+
+            p->prev = temp;
+            temp->next = p;
+            
+            m_tail = temp;
+        }
+    }
+}
+
+
+
+
 
 
 

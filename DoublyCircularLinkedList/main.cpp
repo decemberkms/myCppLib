@@ -20,14 +20,22 @@ int main(){
 
     // myList1.printList();
     // myList3.printList();
-    myList1.printList();
+    List myList2;
     // myList1.insertList(0, 10);
     // myList1.insertList(1, 100);
-    myList1.insertList(0, 2000);
-    myList1.insertList(0, 3000);
-    myList1.insertList(0, 4000);
-    std::cout << myList1.getHead()->data << std::endl;
-    std::cout << myList1.getTail()->data << std::endl;
-    myList1.printList();
+    // myList1.insertList(0, 2000);
+    // myList1.insertList(0, 3000);
+    // myList1.insertList(0, 4000);
+    // std::cout << myList1.getHead()->data << std::endl;
+    // std::cout << myList1.getTail()->data << std::endl;
+    myList2.insertListLast(1);
+    myList2.printList();
+    myList2.insertListLast(2);
+
+    // myList2.printList();
+
+    // myList2.insertList(1,2);
+
+    myList2.printList();
 
 }

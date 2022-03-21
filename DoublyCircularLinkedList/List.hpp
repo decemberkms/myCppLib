@@ -39,6 +39,7 @@ public:
     /*** Functions ***/
 
     void insertList(int index, int key);
+    void insertListLast(int key);
 
     void printList();
 
