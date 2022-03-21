@@ -41,6 +41,7 @@ public:
     void printList();
 
     int countList() const;
+    int sumList();
 
     Node* getHead(){return m_head;};
     Node* getTail(){return m_tail;};

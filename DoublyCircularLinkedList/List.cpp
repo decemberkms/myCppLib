@@ -14,6 +14,17 @@ int List::countList() const{
     return count;
 }
 
+int List::sumList(){
+    Node *temp = m_head;
+
+    int sum = 0;
+    do {
+        sum = temp->data + sum;
+        temp = temp->next;        
+    } while(temp != m_head);
+
+    return sum;
+}
 
 List::List(){
     m_head = m_tail = nullptr;
@@ -100,8 +111,6 @@ List::~List(){
     }
 }
 
-
-
 List& List::operator=(const List& rhs){
     cout << "|List assignment|- rhs: head address: " << rhs.m_head << endl;
     
@@ -158,7 +167,6 @@ List& List::operator=(const List& rhs){
     return *this;
 
 }
-
 
 void List::printList(){
     Node *temp = m_head;
