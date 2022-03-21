@@ -31,7 +31,8 @@ int main(){
     myList2.insertListLast(1);
     myList2.printList();
     myList2.insertListLast(2);
-
+    myList2.printList();
+    myList2.insertListLast(3);
     // myList2.printList();
 
     // myList2.insertList(1,2);

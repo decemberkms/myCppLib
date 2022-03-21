@@ -255,13 +255,14 @@ void List::insertListLast(int key){
         // m_head->prev = m_head;
         // m_head = m_tail;
     } else{
-        if (m_head->next = m_head){
-            temp->next = m_head;
-            m_head->next = temp;
-            temp->prev = m_tail;
-            m_tail->prev = temp;
-
+        if (m_head->next == m_head){
             m_tail = temp;
+
+            m_tail->next = m_head;
+            m_head->next = m_tail;
+            
+            m_tail->prev = m_head;
+            m_head->prev = m_tail;       
         } else{
             p->prev->next = temp;
             temp->prev = p->prev;
