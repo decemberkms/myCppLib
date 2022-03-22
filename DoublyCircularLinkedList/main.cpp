@@ -40,6 +40,10 @@ int main(){
 
     myList2.printList();
 
-    std::cout << myList1.minList() << std::endl;
-
+    myList1.printList();
+    myList1.deleteList(8);
+    myList1.printList();
+    std::cout << myList1.getHead()->data << std::endl;
+    std::cout << myList1.getTail()->data << std::endl;
+    
 }

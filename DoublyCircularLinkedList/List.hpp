@@ -40,7 +40,9 @@ public:
     void insertList(int index, int key);
     void insertListLast(int key);
 
-    // int deleteList(int index);
+    int deleteList(int index);
+
+    // void deleteDuplinSortedSLL();
 
     void printList();
 
@@ -51,6 +53,9 @@ public:
     int minList();
 
     // bool isSorted();
+
+    // Node* searchSLL(int key);
+
 
     Node* getHead(){return m_head;};
     Node* getTail(){return m_tail;};

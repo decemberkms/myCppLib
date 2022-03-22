@@ -348,6 +348,54 @@ void List::insertListLast(int key){
     }
 }
 
+int List::deleteList(int index){
+    // index instruction
+    // List:    1   2   3   4   5
+    // Index:  (1) (2) (3) (4) (5)
+    int x = -1; //default value;
+
+    if (m_head == nullptr){
+        cout << "|List deletion| Invalid operation - list is already empty" << endl;
+        exit(0);
+    }
+
+    if (index <= 0 || index > countList()){
+        cout << "|List deletion| Invalid operation - index out of range" << endl;
+        exit(0);
+    }
+    
+    Node* temp;
+
+    if (index == 1){
+        temp = m_head;
+        temp->next->prev = temp->prev;
+        temp->prev->next = temp->next;
+
+        m_head = temp->next;
+        x = temp->data;
+        delete temp;
+    } else{
+        temp = m_head;
+
+        for (int i = 0; i < index - 1; ++i){
+            temp = temp->next;
+        }
+
+        temp->next->prev = temp->prev;
+        temp->prev->next = temp->next;
+
+        if (temp == m_tail){
+            m_tail = temp->prev;
+        }
+        x = temp->data;
+        delete temp;        
+    }
+
+    return x;
+}
+
+
+
 
 
 
