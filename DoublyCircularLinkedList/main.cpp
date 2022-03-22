@@ -40,6 +40,6 @@ int main(){
 
     myList2.printList();
 
-    std::cout << myList1.maxList() << std::endl;
+    std::cout << myList1.minList() << std::endl;
 
 }

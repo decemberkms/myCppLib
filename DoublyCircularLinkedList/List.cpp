@@ -235,7 +235,7 @@ int List::maxList(){
 
 int List::minList(){
     Node *temp = m_head;
-    int min = INT8_MIN;
+    int min = INT8_MAX;
 
     do {
         if (temp->data < min){
