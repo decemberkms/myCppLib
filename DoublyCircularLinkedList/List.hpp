@@ -30,7 +30,6 @@ public:
     /*** Destructor ***/
     ~List();
 
-
     /*** Overloaded oeprators ***/
     // copy assignment operator
     List& operator=(const List& rhs);
@@ -38,14 +37,20 @@ public:
     List& operator=(List &&rhs);    
 
     /*** Functions ***/
-
     void insertList(int index, int key);
     void insertListLast(int key);
+
+    // int deleteList(int index);
 
     void printList();
 
     int countList() const;
     int sumList();
+
+    int maxList();
+    int minList();
+
+    // bool isSorted();
 
     Node* getHead(){return m_head;};
     Node* getTail(){return m_tail;};
