@@ -1,4 +1,5 @@
 #include "List.hpp"
+#include <vector>
 
 int main(){
     int A[] = {1,2,3,4,5};
@@ -38,5 +39,10 @@ int main(){
     // myList2.insertList(1,2);
 
     myList2.printList();
+
+    std::vector<List> myVector;
+    myVector.push_back(List(A,sizeA));
+
+    myVector.at(0).printList();
 
 }

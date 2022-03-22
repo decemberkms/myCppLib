@@ -97,23 +97,41 @@ List::List(const List &rhs){
     cout << "|List constructor| Copy - head address: " << m_head << endl;
 }
 
+List::List(List &&rhs){
+    cout << "|List constructor| Move - head address (rhs): " << rhs.m_head << endl;
+    m_head = rhs.m_head;
+    m_tail = rhs.m_tail;
+
+    // if (m_head != nullptr){
+    //     for (int i = 0; i < rhs.countList(); ++i){
+            
+    //     }
+    // }
+    rhs.m_head = rhs.m_tail = nullptr;
+    
+    cout << "|List constructor| Move - head address (lhs): " << m_head << endl;
+}
+
 List::~List(){
     cout << "|List destructor| Deleted - head address: " << m_head << endl;
     Node* temp = m_head;
-   
-    while (temp->next != m_head){
-        temp = temp->next;
-    }
+    if (m_head == nullptr){
+        delete m_head;
+    } else {
+        while (temp->next != m_head){
+            temp = temp->next;
+        }
 
-    while (temp != m_head){
-        temp->next = m_head->next;
-        delete m_head;
-        m_head = temp->next;
-    }
- 
-    if (temp == m_head){
-        delete m_head;
-        m_head = nullptr;
+        while (temp != m_head){
+            temp->next = m_head->next;
+            delete m_head;
+            m_head = temp->next;
+        }
+    
+        if (temp == m_head){
+            delete m_head;
+            m_head = m_tail = nullptr;
+        }
     }
 }
 
@@ -172,6 +190,33 @@ List& List::operator=(const List& rhs){
     
     return *this;
 
+}
+
+List& List::operator=(List &&rhs){
+    cout << "|List assignment| Move - head address (rhs): " << rhs.m_head << endl;
+    Node* temp = m_head;
+   
+    while (temp->next != m_head){
+        temp = temp->next;
+    }
+
+    while (temp != m_head){
+        temp->next = m_head->next;
+        delete m_head;
+        m_head = temp->next;
+    }
+ 
+    if (temp == m_head){
+        delete m_head;
+        m_head = m_tail = nullptr;
+    }
+
+    m_head = rhs.m_head;
+    m_tail = rhs.m_tail;
+
+    rhs.m_head = rhs.m_tail = nullptr;
+    cout << "|List assignment| Move - head address (lhs): " << m_head << endl;
+    return *this;
 }
 
 void List::printList(){

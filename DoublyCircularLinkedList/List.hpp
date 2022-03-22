@@ -25,7 +25,7 @@ public:
     // copy constructor
     List(const List &rhs);
     // move constructor
-
+    List(List &&rhs);
     
     /*** Destructor ***/
     ~List();
@@ -34,7 +34,8 @@ public:
     /*** Overloaded oeprators ***/
     // copy assignment operator
     List& operator=(const List& rhs);
-    
+    //move assignment operator
+    List& operator=(List &&rhs);    
 
     /*** Functions ***/
 
