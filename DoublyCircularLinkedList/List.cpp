@@ -394,7 +394,13 @@ int List::deleteList(int index){
     return x;
 }
 
-
+bool List::ifSorted(){
+    if (m_head == nullptr){
+        cout << "The list is empty" << endl;
+        exit(0);
+    }
+    return m_head->data < m_tail->data ? true : false;
+}
 
 
 

@@ -46,4 +46,5 @@ int main(){
     std::cout << myList1.getHead()->data << std::endl;
     std::cout << myList1.getTail()->data << std::endl;
     
+    std::cout << myList2.ifSorted() << std::endl;
 }

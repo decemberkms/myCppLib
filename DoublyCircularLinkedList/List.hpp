@@ -52,7 +52,7 @@ public:
     int maxList();
     int minList();
 
-    // bool isSorted();
+    bool ifSorted();
 
     // Node* searchSLL(int key);
 
