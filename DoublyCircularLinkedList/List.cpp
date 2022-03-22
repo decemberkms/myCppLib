@@ -266,6 +266,21 @@ void List::printList(){
 
 }
 
+Node* List::searchList(int value){
+    Node *temp = m_head;
+    
+    do {        
+        if (temp->data == value){
+            cout << "|List serach| The value has been found in the list" << endl;
+            return temp;
+        }
+        temp = temp->next;
+    } while(temp != m_head);
+
+    std::cout << "|List serach| The value is not in the list"<< std::endl;
+    return nullptr;
+}
+
 void List::insertList(int index, int key){
     // index instruction
     // List:    1   2   3   4   5

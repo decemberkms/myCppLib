@@ -45,6 +45,5 @@ int main(){
     myList1.printList();
     std::cout << myList1.getHead()->data << std::endl;
     std::cout << myList1.getTail()->data << std::endl;
-    
-    std::cout << myList2.ifSorted() << std::endl;
+    myList2.searchList(12213);
 }

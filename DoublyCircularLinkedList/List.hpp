@@ -1,18 +1,12 @@
 #ifndef _LIST_H_
 #define _LIST_H_
 #include <iostream>
+#include "Node.hpp"
 
 // Doubly circular linked list
 
 class List{
 private:
-    class Node{
-    public:
-        int data;
-        Node * next;
-        Node * prev;
-    };
-
     Node* m_head;
     Node* m_tail;
 
@@ -53,8 +47,16 @@ public:
     int minList();
 
     bool ifSorted();
+    
+    Node* searchList(int value);
 
-    // Node* searchSLL(int key);
+    // void reverseEleSLL();
+    // void reverseLinkSLL();
+    // void reverseLinkSLLrec(Node *q, Node* p);
+
+    // void concatSLL(SLL &latter); // latter will be null pointer
+    // void mergeSLL(SLL &latter); // latter will be null pointer
+
 
 
     Node* getHead(){return m_head;};
