@@ -219,6 +219,34 @@ List& List::operator=(List &&rhs){
     return *this;
 }
 
+int List::maxList(){
+    Node *temp = m_head;
+    int max = INT8_MIN;
+
+    do {
+        if (temp->data > max){
+            max = temp->data;
+        }
+        temp = temp->next;
+    } while(temp != m_head);
+
+    return max;
+}
+
+int List::minList(){
+    Node *temp = m_head;
+    int min = INT8_MIN;
+
+    do {
+        if (temp->data < min){
+            min = temp->data;
+        }
+        temp = temp->next;
+    } while(temp != m_head);
+
+    return min;
+}
+
 void List::printList(){
     if (m_head == nullptr){
         cout << "|List print| Invalid operation" << endl;
