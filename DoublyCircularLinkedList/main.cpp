@@ -38,12 +38,17 @@ int main(){
 
     // myList2.insertList(1,2);
 
-    myList2.printList();
+    myList1.printList();
 
+    // myList1.printList();
+    // myList1.deleteList(8);
+    // myList1.printList();
+    // std::cout << myList1.getHead()->data << std::endl;
+    // std::cout << myList1.getTail()->data << std::endl;
+    // myList2.searchList(12213);
     myList1.printList();
-    myList1.deleteList(8);
+    myList1.reverseEleList();
     myList1.printList();
-    std::cout << myList1.getHead()->data << std::endl;
-    std::cout << myList1.getTail()->data << std::endl;
-    myList2.searchList(12213);
+
+
 }

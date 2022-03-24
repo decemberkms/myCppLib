@@ -417,7 +417,28 @@ bool List::ifSorted(){
     return m_head->data < m_tail->data ? true : false;
 }
 
+void List::reverseEleList(){
+    Node *temp = m_head;
 
+    int i = 0;
+    
+    int A[countList()];
+
+    do {
+        A[i] = temp->data;
+        temp = temp->next;
+        i++;
+    } while(temp != m_head);
+ 
+    temp = m_head;
+    i--;
+
+    do {
+        temp->data = A[i--];
+        temp = temp->next;
+    } while(temp != m_head);
+
+}
 
 
 

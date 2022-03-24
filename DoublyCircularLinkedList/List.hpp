@@ -50,7 +50,7 @@ public:
     
     Node* searchList(int value);
 
-    // void reverseEleSLL();
+    void reverseEleList();
     // void reverseLinkSLL();
     // void reverseLinkSLLrec(Node *q, Node* p);
 
