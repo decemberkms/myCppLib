@@ -21,22 +21,25 @@ public:
     // move constructor
     List(List &&rhs);
     
+    
     /*** Destructor ***/
     ~List();
 
+    
     /*** Overloaded oeprators ***/
     // copy assignment operator
     List& operator=(const List& rhs);
     //move assignment operator
     List& operator=(List &&rhs);    
 
+    
     /*** Functions ***/
     void insertList(int index, int key);
     void insertListLast(int key);
 
     int deleteList(int index);
 
-    // void deleteDuplinSortedSLL();
+    void deleteDuplinSortedList();
 
     void printList();
     void printReList();
@@ -53,11 +56,8 @@ public:
 
     void reverseEleList();
 
-
-    // void concatSLL(SLL &latter); // latter will be null pointer
+    friend List concatList(List first, List second); 
     // void mergeSLL(SLL &latter); // latter will be null pointer
-
-
 
     Node* getHead(){return m_head;};
     Node* getTail(){return m_tail;};

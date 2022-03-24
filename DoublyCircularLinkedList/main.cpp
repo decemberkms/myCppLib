@@ -2,7 +2,7 @@
 #include <vector>
 
 int main(){
-    int A[] = {100,20,3,11,22,1,32,23};
+    int A[] = {0,11,22,33};
     int sizeA = sizeof(A) / sizeof(int);
 
     List myList1(A, sizeA);
@@ -30,15 +30,13 @@ int main(){
     // std::cout << myList1.getHead()->data << std::endl;
     // std::cout << myList1.getTail()->data << std::endl;
     myList2.insertListLast(1);
-    myList2.printList();
     myList2.insertListLast(2);
-    myList2.printList();
     myList2.insertListLast(3);
     // myList2.printList();
 
     // myList2.insertList(1,2);
 
-    myList1.printList();
+    
 
     // myList1.printList();
     // myList1.deleteList(8);
@@ -46,9 +44,12 @@ int main(){
     // std::cout << myList1.getHead()->data << std::endl;
     // std::cout << myList1.getTail()->data << std::endl;
     // myList2.searchList(12213);
-    myList1.printList();
-    myList1.printReList();
-    myList1.printList();
+    
+    List myList3 = concatList(myList1, myList2);
 
+
+    myList1.printList();
+    myList2.printList();
+    myList3.printList();
 
 }

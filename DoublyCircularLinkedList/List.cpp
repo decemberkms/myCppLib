@@ -458,10 +458,33 @@ void List::reverseEleList(){
 
 }
 
+void List::deleteDuplinSortedList(){
+    Node *p = m_head;
+    Node *q = m_head->next;
 
+    do {
+        if (p->data != q->data){
+            p = q;
+            q = q->next;
+        } else {
+            p->next = q->next;
+            std::cout << q->data << " is deleted (duplicate)" << std::endl;
+            delete q;
+            q = p->next;
+        }        
+    } while(q != m_head);
+}
 
+List concatList(List first, List second){
+    List result(first);
+       
+    result.m_head->prev = second.m_tail;
+    result.m_tail->next = second.m_head;
 
-
+    second.m_tail->next = result.m_head;
+    second.m_head->prev = result.m_tail;
+    return result;
+}
 
 
 
