@@ -39,6 +39,7 @@ public:
     // void deleteDuplinSortedSLL();
 
     void printList();
+    void printReList();
 
     int countList() const;
     int sumList();
@@ -51,8 +52,7 @@ public:
     Node* searchList(int value);
 
     void reverseEleList();
-    // void reverseLinkSLL();
-    // void reverseLinkSLLrec(Node *q, Node* p);
+
 
     // void concatSLL(SLL &latter); // latter will be null pointer
     // void mergeSLL(SLL &latter); // latter will be null pointer

@@ -47,7 +47,7 @@ int main(){
     // std::cout << myList1.getTail()->data << std::endl;
     // myList2.searchList(12213);
     myList1.printList();
-    myList1.reverseEleList();
+    myList1.printReList();
     myList1.printList();
 
 

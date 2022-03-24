@@ -266,6 +266,24 @@ void List::printList(){
 
 }
 
+void List::printReList(){
+    if (m_tail == nullptr){
+        cout << "|List print| Invalid operation" << endl;
+        exit(0);
+    }
+
+    Node *temp = m_tail;
+    cout << "\n|Head address|: " << temp << endl;
+    cout << "|Head starts| -> ";
+
+    do {
+         std::cout << temp->data << " -> ";
+         temp = temp->prev;
+    } while(temp != m_tail);
+
+    cout << "|Back to head|\n" << endl;    
+}
+
 Node* List::searchList(int value){
     Node *temp = m_head;
     
@@ -439,6 +457,7 @@ void List::reverseEleList(){
     } while(temp != m_head);
 
 }
+
 
 
 
