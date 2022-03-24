@@ -475,15 +475,19 @@ void List::deleteDuplinSortedList(){
     } while(q != m_head);
 }
 
-List concatList(List first, List second){
-    List result(first);
+void concatList(List &first, List &second){
+    // List result(first);
        
-    result.m_head->prev = second.m_tail;
-    result.m_tail->next = second.m_head;
+    first.m_head->prev = second.m_tail;
+    first.m_tail->next = second.m_head;
+    
+    second.m_tail->next = first.m_head;
+    second.m_head->prev = first.m_tail;
 
-    second.m_tail->next = result.m_head;
-    second.m_head->prev = result.m_tail;
-    return result;
+    first.m_tail = second.m_tail;
+
+
+    
 }
 
 

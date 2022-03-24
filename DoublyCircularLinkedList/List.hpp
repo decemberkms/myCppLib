@@ -56,7 +56,7 @@ public:
 
     void reverseEleList();
 
-    friend List concatList(List first, List second); 
+    friend void concatList(List &first, List &second); 
     // void mergeSLL(SLL &latter); // latter will be null pointer
 
     Node* getHead(){return m_head;};
