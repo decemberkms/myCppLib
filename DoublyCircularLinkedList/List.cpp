@@ -475,20 +475,37 @@ void List::deleteDuplinSortedList(){
     } while(q != m_head);
 }
 
-void concatList(List &first, List &second){
-    // List result(first);
-       
-    first.m_head->prev = second.m_tail;
-    first.m_tail->next = second.m_head;
-    
-    second.m_tail->next = first.m_head;
-    second.m_head->prev = first.m_tail;
+List concatList(List &first, List &second){
 
-    first.m_tail = second.m_tail;
-
+    // if (third.getHead() != nullptr){
+    //     cout << "Invalid operation: third parameter's list must be empty" << endl;
+    //     exit(0);
+    // }
 
     
+    // first.getHead();  
+
+    // maka a new list then copy all of them into new list
+    List concatList;
+    List firstCopy(first);
+    List secondCopy(second);
+
+    firstCopy.printList();
+    secondCopy.printList();
+
+
+    firstCopy.m_head->prev = secondCopy.m_tail;
+    firstCopy.m_tail->next = secondCopy.m_head;
+    
+    secondCopy.m_tail->next = firstCopy.m_head;
+    secondCopy.m_head->prev = firstCopy.m_tail;
+    
+    secondCopy.m_head = nullptr;
+    secondCopy.m_tail = nullptr;
+
+    return firstCopy;   
 }
+
 
 
 

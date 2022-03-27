@@ -45,10 +45,14 @@ int main(){
     // std::cout << myList1.getTail()->data << std::endl;
     // myList2.searchList(12213);
     
-    concatList(myList1, myList2);
+    // concatList(myList1, myList2);
 
 
     // myList1.printList();
     myList1.printList();
+    myList2.printList();
+    List myList3 = concatList(myList1, myList2);
+
+    myList3.printList();
 
 }
