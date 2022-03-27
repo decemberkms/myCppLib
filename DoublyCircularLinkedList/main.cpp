@@ -49,10 +49,17 @@ int main(){
 
 
     // myList1.printList();
+    // myList1.printList();
+    // myList2.printList();
+    // List myList3 = concatList(myList1, myList2);
+
+    // myList3.printList();
+    
+    
     myList1.printList();
     myList2.printList();
-    List myList3 = concatList(myList1, myList2);
 
-    myList3.printList();
+    List myList4 =  mergeList(myList1, myList2);
+    myList4.printList();
 
 }

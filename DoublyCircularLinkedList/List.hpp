@@ -19,7 +19,7 @@ public:
     // copy constructor
     List(const List &rhs);
     // move constructor
-    List(List &&rhs);
+    List(List &&rhs) noexcept;
     
     
     /*** Destructor ***/
@@ -30,7 +30,7 @@ public:
     // copy assignment operator
     List& operator=(const List& rhs);
     //move assignment operator
-    List& operator=(List &&rhs);    
+    List& operator=(List &&rhs) noexcept;    
 
     
     /*** Functions ***/
@@ -57,7 +57,7 @@ public:
     void reverseEleList();
 
     friend List concatList(List &first, List &second); 
-    // void mergeSLL(SLL &latter); // latter will be null pointer
+    friend List mergeList(List &first, List &second);
 
     Node* getHead(){return m_head;};
     Node* getTail(){return m_tail;};

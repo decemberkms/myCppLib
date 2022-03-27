@@ -97,7 +97,7 @@ List::List(const List &rhs){
     cout << "|List constructor| Copy - head address: " << m_head << endl;
 }
 
-List::List(List &&rhs){
+List::List(List &&rhs) noexcept {
     cout << "|List constructor| Move - head address (rhs): " << rhs.m_head << endl;
     m_head = rhs.m_head;
     m_tail = rhs.m_tail;
@@ -192,7 +192,7 @@ List& List::operator=(const List& rhs){
 
 }
 
-List& List::operator=(List &&rhs){
+List& List::operator=(List &&rhs) noexcept {
     cout << "|List assignment| Move - head address (rhs): " << rhs.m_head << endl;
     Node* temp = m_head;
    
@@ -477,22 +477,13 @@ void List::deleteDuplinSortedList(){
 
 List concatList(List &first, List &second){
 
-    // if (third.getHead() != nullptr){
-    //     cout << "Invalid operation: third parameter's list must be empty" << endl;
-    //     exit(0);
-    // }
+    if (first.m_head == nullptr || second.m_head == nullptr){
+        cout << "Invalid operation: one of the lists is empty" << endl;
+        exit(0);
+    }
 
-    
-    // first.getHead();  
-
-    // maka a new list then copy all of them into new list
-    List concatList;
     List firstCopy(first);
     List secondCopy(second);
-
-    firstCopy.printList();
-    secondCopy.printList();
-
 
     firstCopy.m_head->prev = secondCopy.m_tail;
     firstCopy.m_tail->next = secondCopy.m_head;
@@ -502,10 +493,96 @@ List concatList(List &first, List &second){
     
     secondCopy.m_head = nullptr;
     secondCopy.m_tail = nullptr;
-
+    firstCopy.printList();
     return firstCopy;   
 }
 
+List mergeList(List &first, List &second){
+    
+    if (first.m_head == nullptr || second.m_head == nullptr){
+            cout << "Invalid operation: one of the lists is empty" << endl;
+            exit(0);
+        }
+
+    List mergedList;
+    List firstCopy(first);
+    List secondCopy(second);
+
+    firstCopy.m_head->prev = nullptr;
+    firstCopy.m_tail->next = nullptr;
+
+    secondCopy.m_head->prev = nullptr;
+    secondCopy.m_tail->next = nullptr;
+
+    Node* third = mergedList.m_head;
+    Node* ending = mergedList.m_tail;
+    Node* p = firstCopy.m_head;
+    Node* q = secondCopy.m_head;
+    
+    if(p->data < q->data){
+        mergedList.m_head = mergedList.m_tail = p;
+        p = p->next;
+        mergedList.m_head->next = mergedList.m_head;
+        mergedList.m_head->prev = mergedList.m_head;
+        third = ending;         
+    } else {
+        mergedList.m_head = mergedList.m_tail = q;
+        q = q->next;
+        mergedList.m_head->next = mergedList.m_head;
+        mergedList.m_head->prev = mergedList.m_head;  
+        third = ending; 
+    }
+
+    while (p != nullptr && q != nullptr) {
+        if (p->data < q->data){
+            Node* k;
+            k = mergedList.m_tail;
+
+            mergedList.m_tail->next = p;
+            mergedList.m_tail = p;
+            mergedList.m_tail->prev = k;
+
+            p = p->next;
+            mergedList.m_tail->next = mergedList.m_head ;
+        } else {
+            Node* k;
+            k = mergedList.m_tail;
+
+            mergedList.m_tail->next = q;
+            mergedList.m_tail = q;
+            mergedList.m_tail->prev = k;
+
+            q = q->next;
+            mergedList.m_tail->next = mergedList.m_head ;
+        }
+    } 
+
+    
+    mergedList.printList();
+    cout << p->data << endl;    
+    // cout << q->data << endl;
+    while(p->next != nullptr) {
+        mergedList.m_tail->next = p;
+        p->prev = mergedList.m_tail;
+
+        p->next = mergedList.m_head;
+        mergedList.m_head->prev = p;
+        p = p->next;
+    }
+
+    while(q->next != nullptr) {
+        mergedList.m_tail->next = q;
+        q->prev = mergedList.m_tail;
+
+        q->next = mergedList.m_head;
+        mergedList.m_head->prev = q;
+        q = q->next;
+    }
+
+   
+    return mergedList;
+
+}
 
 
 
