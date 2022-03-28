@@ -558,28 +558,38 @@ List mergeList(List &first, List &second){
     } 
 
     
-    mergedList.printList();
-    cout << p->data << endl;    
-    // cout << q->data << endl;
-    while(p->next != nullptr) {
-        mergedList.m_tail->next = p;
-        p->prev = mergedList.m_tail;
+    // putting the remaining nodes 
 
-        p->next = mergedList.m_head;
-        mergedList.m_head->prev = p;
+    Node* temp;
+    while(p != nullptr) {
+        temp = p;
         p = p->next;
+        
+        mergedList.m_tail->next = temp;
+        temp->prev = mergedList.m_tail;
+
+        temp->next = mergedList.m_head;
+        mergedList.m_head->prev = temp;
+
+        mergedList.m_tail = temp;
     }
 
-    while(q->next != nullptr) {
-        mergedList.m_tail->next = q;
-        q->prev = mergedList.m_tail;
-
-        q->next = mergedList.m_head;
-        mergedList.m_head->prev = q;
+    while(q != nullptr) {
+        temp = q;
         q = q->next;
+
+        mergedList.m_tail->next = temp;
+        temp->prev = mergedList.m_tail;
+
+        temp->next = mergedList.m_head;
+        mergedList.m_head->prev = temp;
+        
+        mergedList.m_tail = temp;
     }
 
-   
+    firstCopy.m_head = secondCopy.m_head = nullptr;
+    firstCopy.m_tail = secondCopy.m_tail = nullptr;
+
     return mergedList;
 
 }
