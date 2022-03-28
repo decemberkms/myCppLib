@@ -59,11 +59,12 @@ int main(){
     myList1.printList();
     myList2.printList();
 
-    List myList4 =  mergeList(myList1, myList2);
+    List myList4 = mergeList(myList1, myList2);
     myList4.printList();
     List myList5 = mergeList(myList2, myList1);
     myList5.printList();
 
-    myList4.printReList();
-
+    // myList4.printReList();
+    myList5.reverseEleList();
+    myList5.printList();
 }
