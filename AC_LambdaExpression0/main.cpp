@@ -59,8 +59,11 @@ int main(){
     cout << a1 << endl;
 
     //transform changes the vector!
-    std::transform(vec1.begin(), vec1.end(), vec1.begin() + 3, mult);
-    std::for_each(vec1.begin(), vec1.end(), d1);
-
+    // std::transform(vec1.begin(), vec1.end(), vec1.begin() + 3, mult); // need return
+    // std::for_each(vec1.begin(), vec1.end(), d1); // ignore return
+    // std::transform(vec1.begin(), vec1.end(), vec1.begin(),  [] (int x) {return x*x;});
+    // std::for_each(vec1.begin(), vec1.end(), [] (int x) { return x*x;});
+    // std::for_each(vec1.begin(), vec1.end(), [] (int x) { cout << x << endl;});
+    std::transform(vec1.begin(), vec1.end(), vec1.begin(),  [] (int x) {cout << x << endl;});
     return 0;
 }
