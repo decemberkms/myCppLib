@@ -48,6 +48,10 @@
         "typeinfo": "cpp",
         "list": "cpp",
         "forward_list": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "stack": "cpp",
+        "queue": "cpp",
+        "map": "cpp",
+        "unordered_set": "cpp"
     }
 }
