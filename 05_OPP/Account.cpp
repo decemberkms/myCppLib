@@ -7,9 +7,14 @@ bool Account::deposit(double input){
 }
 
 bool Account::withdraw(double input){
-    balance -= input;
-    std::cout << "Withdraw" << std::endl;
-    return true;
+    if (balance - input >= 0){
+        balance -= input;
+        std::cout << "Withdraw done" << std::endl;
+        return true;
+    } else {
+        std::cout << "Not enough balance" << std::endl;
+        return false;
+    }
 }
 
 void Account::printInfo(){
