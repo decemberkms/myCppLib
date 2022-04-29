@@ -14,6 +14,9 @@ public:
     Account(std::string name_var, double balance_var)
         :name{name_var}, balance{balance_var} {}
 
+    //destructor
+    ~Account();
+
     // methods
     bool deposit(double input); 
     bool withdraw(double input);
