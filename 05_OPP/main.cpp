@@ -14,5 +14,8 @@ int main(){
     default_account.printInfo();
     pointer_accout->printInfo();
     delete pointer_accout;
+
+    min_accout.deposit(100.0);
+    min_accout.printInfo();
     return 0;
 }

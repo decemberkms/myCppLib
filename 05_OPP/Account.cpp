@@ -2,11 +2,13 @@
 
 bool Account::deposit(double input){
     balance += input;
+    std::cout << "Deposit" << std::endl;
     return true;
 }
 
 bool Account::withdraw(double input){
     balance -= input;
+    std::cout << "Withdraw" << std::endl;
     return true;
 }
 

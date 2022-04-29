@@ -19,6 +19,8 @@ public:
     bool withdraw(double input);
     void printInfo();
 
+    void set_balance(double bal){balance = bal;}
+    double getBalance(){return balance;}
 };
 
 #endif
