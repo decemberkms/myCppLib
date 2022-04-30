@@ -8,6 +8,7 @@ class Account {
 private:
     std::string name {"deauflt"};
     double balance {0.0};
+
 public:
     //constructor
     // Account() = default;
@@ -15,15 +16,16 @@ public:
     // Account(std::string name_var)
     //     :name{name_var}, balance{0} {}
 
-    Account()
-        :Account {"None", 0} {
-            std::cout << "No arg!" << std::endl;
-        }
-
-    Account(std::string name_var)
-        :Account {name_var, 0} {}
-
-    Account(std::string name_var, double balance_var)
+    // Account()
+    //     :Account {"None", 0} {
+    //         std::cout << "No arg!" << std::endl;
+    //     }
+    // //delegating constructor
+    // Account(std::string name_var)
+    //     :Account {name_var, 0} {}
+    
+    // simplifying constructor with default values
+    Account(std::string name_var = "None", double balance_var = 0)
         :name{name_var}, balance{balance_var} {}
 
     //destructor
