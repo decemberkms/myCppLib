@@ -10,12 +10,24 @@ private:
     double balance {0.0};
 public:
     //constructor
-    Account() = default;
+    // Account() = default;
+
+    // Account(std::string name_var)
+    //     :name{name_var}, balance{0} {}
+
+    Account()
+        :Account {"None", 0} {
+            std::cout << "No arg!" << std::endl;
+        }
+
+    Account(std::string name_var)
+        :Account {name_var, 0} {}
+
     Account(std::string name_var, double balance_var)
         :name{name_var}, balance{balance_var} {}
 
     //destructor
-    ~Account();
+    ~Account(){};
 
     // methods
     bool deposit(double input); 
