@@ -28,6 +28,11 @@ public:
     Account(std::string name_var = "None", double balance_var = 0)
         :name{name_var}, balance{balance_var} {}
 
+    //copy constructor // if not provid - default memberwise copy 
+    Account(const Account &rhs)
+        :Account {rhs.name, rhs.balance}{
+    }
+
     //destructor
     ~Account(){};
 
