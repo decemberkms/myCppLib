@@ -5,10 +5,12 @@ int main(){
     // Account min_accout; // default constructor
     // parameter - >()
     Account min_accout("Min", 2000.0); 
+    std::cout << Account::get_num_accounts() << std::endl;
     Account pee_account("Pee", 300.0);
+    std::cout << Account::get_num_accounts() << std::endl;
     Account default_account;
+    std::cout << Account::get_num_accounts() << std::endl;
     Account *pointer_accout = new Account("Pointer", 1000.0);
-
     std::cout << Account::get_num_accounts() << std::endl;
 
     min_accout.printInfo();
