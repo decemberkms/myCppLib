@@ -41,11 +41,11 @@ public:
     bool withdraw(double input);
     void printInfo();
 
-    void set_balance(double bal){balance = bal;}
-    double getBalance(){return balance;}
+    void set_balance (double bal) {balance = bal;}
+    double getBalance() const {return balance;}
 
     void set_name(std::string name_var){name = name_var;}
-    std::string getName(){return name;}
+    std::string getName() const {return name;}
 };
 
 #endif
