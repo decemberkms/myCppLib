@@ -1,5 +1,10 @@
 #include "Account.hpp"
 
+int Account::num_accounts = 0;
+int Account::get_num_accounts(){
+    return num_accounts;
+}
+
 bool Account::deposit(double input){
     balance += input;
     std::cout << "Deposit" << std::endl;

@@ -8,8 +8,11 @@ class Account {
 private:
     std::string name {"deauflt"};
     double balance {0.0};
+    static int num_accounts;
 
 public:
+    static int get_num_accounts();
+
     //constructor
     // Account() = default;
 
@@ -26,7 +29,9 @@ public:
     
     // simplifying constructor with default values
     Account(std::string name_var = "None", double balance_var = 0)
-        :name{name_var}, balance{balance_var} {}
+        :name{name_var}, balance{balance_var} {
+            ++num_accounts;
+        }
 
     //copy constructor // if not provid - default memberwise copy 
     Account(const Account &rhs)
@@ -34,7 +39,9 @@ public:
     }
 
     //destructor
-    ~Account(){};
+    ~Account(){
+        --num_accounts;
+    };
 
     // methods
     bool deposit(double input); 

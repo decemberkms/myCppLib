@@ -9,6 +9,8 @@ int main(){
     Account default_account;
     Account *pointer_accout = new Account("Pointer", 1000.0);
 
+    std::cout << Account::get_num_accounts() << std::endl;
+
     min_accout.printInfo();
     pee_account.printInfo();
     default_account.printInfo();
