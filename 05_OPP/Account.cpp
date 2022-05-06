@@ -40,3 +40,33 @@ Account &Account::operator=(Account &&rhs){
     
     return *this;
 }
+
+
+Account Account::operator-() const{
+    // balance = -balance;
+}
+Account Account::operator++(){
+    balance++;
+} // pre
+Account Account::operator++(int){
+    balance++;
+} // post 
+bool Account::operator!() const{
+
+}
+
+Account Account::operator+(const Account &rhs){
+
+}
+
+Account Account::operator-(const Account &rhs) const{
+
+}
+
+bool Account::operator==(const Account &rhs) const{
+    return (this->balance == rhs.balance);
+}
+
+bool Account::operator<(const Account &rhs) const{
+    return (this->balance < rhs.balance);
+}

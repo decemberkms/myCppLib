@@ -58,6 +58,17 @@ public:
     /// copy assignment
     Account &operator=(const Account &rhs);
     Account &operator=(Account &&rhs);
+    
+    Account operator-() const;
+    Account operator++(); // pre
+    Account operator++(int); // post 
+    bool operator!() const;
+    
+    Account operator+(const Account &rhs);
+    Account operator-(const Account &rhs) const;
+    bool operator==(const Account &rhs) const;
+    bool operator<(const Account &rhs) const;
+    
 };
 
 #endif
