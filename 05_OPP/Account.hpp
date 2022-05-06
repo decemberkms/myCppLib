@@ -53,6 +53,11 @@ public:
 
     void set_name(std::string name_var){name = name_var;}
     std::string getName() const {return name;}
+
+    // operator overloading
+    /// copy assignment
+    Account &operator=(const Account &rhs);
+    Account &operator=(Account &&rhs);
 };
 
 #endif

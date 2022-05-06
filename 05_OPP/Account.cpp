@@ -27,3 +27,16 @@ void Account::printInfo(){
     std::cout << "Name: " << name << std::endl;
     std::cout << "Balance: " << balance << std::endl;
 }
+
+Account &Account::operator=(const Account &rhs){
+    if (this == &rhs)
+        return *this;
+    return *this;
+}
+
+Account &Account::operator=(Account &&rhs){
+    if (this == &rhs)
+        return *this;
+    
+    return *this;
+}
