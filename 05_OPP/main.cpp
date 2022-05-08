@@ -22,6 +22,7 @@ int main(){
     min_accout.deposit(100.0);
     min_accout.printInfo();
 
+    std::cout << min_accout << std::endl;
     
     return 0;
 }

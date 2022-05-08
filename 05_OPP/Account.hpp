@@ -4,6 +4,7 @@
 #include <iostream>
 
 class Account {
+    friend std::ostream &operator<<(std::ostream &os, const Account &rhs);
     friend bool operator==(const Account &lhs, const Account &rhs);
     friend Account operator-(const Account &obj);
     // attributes

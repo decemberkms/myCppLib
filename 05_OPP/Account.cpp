@@ -76,6 +76,12 @@ bool Account::operator<(const Account &rhs) const{
 bool operator==(const Account &lsh, const Account &rhs){
     return (lsh.balance == rhs.balance);
 }
+
 Account operator-(const Account &obj){
     // obj.balance = -obj.balance;
+}
+
+std::ostream &operator<<(std::ostream &os, const Account &rhs){
+    os << rhs.balance;
+    return os;
 }
