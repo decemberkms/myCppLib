@@ -42,9 +42,9 @@ Account &Account::operator=(Account &&rhs){
 }
 
 
-Account Account::operator-() const{
-    // balance = -balance;
-}
+// Account Account::operator-() const{
+//     // balance = -balance;
+// }
 Account Account::operator++(){
     balance++;
 } // pre
@@ -63,10 +63,19 @@ Account Account::operator-(const Account &rhs) const{
 
 }
 
-bool Account::operator==(const Account &rhs) const{
-    return (this->balance == rhs.balance);
-}
+// bool Account::operator==(const Account &rhs) const{
+//     return (this->balance == rhs.balance);
+// }
 
 bool Account::operator<(const Account &rhs) const{
     return (this->balance < rhs.balance);
+}
+
+//global function
+
+bool operator==(const Account &lsh, const Account &rhs){
+    return (lsh.balance == rhs.balance);
+}
+Account operator-(const Account &obj){
+    // obj.balance = -obj.balance;
 }
