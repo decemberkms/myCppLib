@@ -29,6 +29,6 @@ int main(){
 
     Savings_Account my_saving{};
     my_saving.deposit(100.0);
-    
+    std::cout << Account::get_num_accounts() << std::endl;
     return 0;
 }

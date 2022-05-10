@@ -33,6 +33,7 @@ public:
     // simplifying constructor with default values
     Account(std::string name_var = "None", double balance_var = 0)
         :name{name_var}, balance{balance_var} {
+            std::cout << "Account called" << std::endl;
             ++num_accounts;
         }
 
