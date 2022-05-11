@@ -43,6 +43,18 @@ int main(){
     p3->withdraw();
     p4->withdraw();
 
+
+    Account *array[] = {p1, p2, p3, p4};
+    for (auto i = 0; i < 4; ++i)
+        array[i]->withdraw();
+    
+
+    std::vector<Account *> accounts {p1, p2, p3, p4};
+
+    std::cout << "Here" << std::endl;
+    for (auto acc_ptr: accounts)
+        acc_ptr->withdraw();
+
     delete p1;
     delete p2;
     delete p3;
