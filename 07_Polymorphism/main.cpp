@@ -8,6 +8,10 @@ public:
     virtual void withdraw(){
         std::cout << "Account" << std::endl;
     }
+
+    virtual ~Account(){
+
+    }
 };
 
 class Checking : public Account {
@@ -31,6 +35,9 @@ public:
     }
 };
 
+void do_something(Account &account, double amount) {
+    account.withdraw();
+}
 
 int main(){
     Account *p1 = new Account();
@@ -54,6 +61,17 @@ int main(){
     std::cout << "Here" << std::endl;
     for (auto acc_ptr: accounts)
         acc_ptr->withdraw();
+
+
+    Account a1;
+    Savings a2;
+    Checking a3;
+    Trust a4;
+    std::cout << "Heredddddddddddddddd" << std::endl;
+    do_something(a1, 1000);
+    do_something(a2, 1000);
+    do_something(a3, 1000);
+    do_something(a4, 1000);
 
     delete p1;
     delete p2;
