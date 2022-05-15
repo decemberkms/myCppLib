@@ -19,7 +19,7 @@ public:
 
 class B{
 private:
-    std::shared_ptr<A> a_ptr;
+    std::weak_ptr<A> a_ptr;
 public:
   void set_A(std::shared_ptr<A> &a){
       a_ptr = a;
@@ -35,7 +35,7 @@ int main(){
     a->set_B(b);
     b->set_A(a);
 
-    
+
 
 
 
